@@ -230,16 +230,16 @@ void Eta32mini_SevenSegment_Display(unsigned char value)
 }
 void Display_7Segment(void)
 {
-	/* Enable PA0 in PORTA with value 1 to enable
-	 * the BJT NPN transistor to connect the first 7-segment and the rest are off*/
+	/* Enable PC6 in PORTC with value 1 to enable
+	 * the BJT NPN transistor to connect the first 7-segment */
 	PORTC = ( PORTC & 0X3F) | (1<<PC6);
 	/* Then display sec1 on decoder*/
 	Eta32mini_SevenSegment_Display(Sec1);
 	/* Delay 2 millisecond */
 	_delay_ms(2);
 
-	/* Enable PA0 in PORTA with value 1 to enable
-	 * the BJT NPN transistor to connect the first 7-segment and the rest are off*/
+	/* Enable PC7 in PORTC with value 1 to enable
+	 * the BJT NPN transistor to connect the second 7-segment */
 	PORTC = ( PORTC & 0X3F) | (1<<PC7);
 	/* Then display sec1 on decoder*/
 	Eta32mini_SevenSegment_Display(Sec2);
