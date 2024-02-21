@@ -25,7 +25,6 @@ unsigned char Hour2 = 0;
  */
 
 /* Interrupt Service Routine for Timer1 compare mode */
-/* Interrupt Service Routine for Timer1 compare mode */
 ISR(TIMER1_COMPA_vect)
 {
 	Sec1++;
