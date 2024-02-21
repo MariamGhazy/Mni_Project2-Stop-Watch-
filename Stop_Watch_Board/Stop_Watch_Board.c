@@ -18,10 +18,10 @@ unsigned char Hour1 = 0;
 unsigned char Hour2 = 0;
 /*============================TIMER_1_INITIALIZATION_CTC_MODE============================*/
 /* Description:
- * For System Clock = 1Mhz and prescaler F_CPU/1024.
- * Timer frequency will be around 978HZ, Ttimer = 1.0224ms
- * Compare interrupt will be generated every one second-> second/1.0224msec
- *  so we set compare value to 978 to count one second.
+ * For System Clock = 16Mhz and prescaler F_CPU/1024.
+ * Timer frequency will be around 15625 HZ, Ttimer = 64us
+ * Compare interrupt will be generated every one second-> second/64us
+ *  so we set compare value to 15625 to count one second.
  */
 
 /* Interrupt Service Routine for Timer1 compare mode */
@@ -65,7 +65,7 @@ void Timer1_CTC_Mode_Init(void)
 {
 	TCNT1 = 0;		/* Set timer1 initial count to zero */
 
-	OCR1A = 15625;    /* Set the Compare value to 978 to count one second */
+	OCR1A = 15625;    /* Set the Compare value to 15625 to count one second */
 
 	TIMSK |= (1<<OCIE1A); /* Enable Timer1 Compare A Interrupt */
 
